@@ -1,39 +1,15 @@
-# Iterator
+Iterator
+========
 
-```
-@startuml
+데이터의 순차 처리 패턴
 
-interface Aggregate<T> {
-	+ iterator() : T
-}
-interface Iterator<T> {
-	+ hasNext() : boolean
-	+ next() : T
-}
-class AggregateImpl<T> {
-	+ iterator() : Iterator
-}
-class IteratorImpl<T> {
-	- aggregate : Aggregate
+컬렉션 데이터를 순차적으로 가져와서 처리
 
-	+ hasNext() : boolean
-	+ next() : T
-}
-class Element {
-	+ name
-}
+## UML
 
-Aggregate -> Iterator : create
+![Iterator UML](iterator.png "uml")
 
-Aggregate <|.. AggregateImpl
-Iterator <|.. IteratorImpl
-
-AggregateImpl <-o IteratorImpl : has
-AggregateImpl "1" o--> "many" Element : contains
-@enduml
-```
-
-### 관련 패턴
+## 관련 패턴
 [Visitor](../../../../../docs/behavioral/Visitor.md)
 [Composite](../../../../../docs/structural/Composite.md)
 [Factory Method](../../../../../docs/creational/FactoryMethod.md)
