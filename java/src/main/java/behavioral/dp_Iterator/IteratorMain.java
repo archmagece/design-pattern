@@ -1,5 +1,7 @@
-package dp_Iterator;
+package behavioral.dp_Iterator;
 
+import behavioral.dp_Iterator.lib.AggregateImpl;
+import behavioral.dp_Iterator.lib.Iterator;
 import lombok.extern.slf4j.Slf4j;
 
 /**

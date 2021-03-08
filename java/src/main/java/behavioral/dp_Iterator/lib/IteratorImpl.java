@@ -1,5 +1,7 @@
-package dp_Iterator;
+package behavioral.dp_Iterator.lib;
 
+import behavioral.dp_Iterator.lib.Aggregate;
+import behavioral.dp_Iterator.lib.Iterator;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -9,10 +11,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @since 2017-01-14 18
  */
 @Slf4j
-public class IteratorImpl<T> implements Iterator<T>{
+public class IteratorImpl<T> implements Iterator<T> {
 
-	private Aggregate<T> aggregate;
-	private AtomicInteger aint = new AtomicInteger(0);
+	private final Aggregate<T> aggregate;
+	private final AtomicInteger aint = new AtomicInteger(0);
 
 	public IteratorImpl(Aggregate<T> aggregate){
 		this.aggregate = aggregate;
@@ -20,10 +22,7 @@ public class IteratorImpl<T> implements Iterator<T>{
 
 	@Override
 	public boolean hasNext() {
-		if(aggregate.get(aint.intValue())!=null){
-			return true;
-		}
-		return false;
+		return aint.intValue() < aggregate.size();
 	}
 
 	@Override

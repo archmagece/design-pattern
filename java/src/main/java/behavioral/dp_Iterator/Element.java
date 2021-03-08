@@ -1,4 +1,4 @@
-package dp_Iterator;
+package behavioral.dp_Iterator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
